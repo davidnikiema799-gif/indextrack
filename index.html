@@ -8,6 +8,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="IndexTrack">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-index.svg">
 <title>IndexTrack</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -423,7 +425,7 @@ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;if(!lo
 window.addEventListener('appinstalled',()=>{document.getElementById('install-banner').classList.remove('show');showToast('🎉 IndexTrack installé !');});
 function installApp(){if(dp){dp.prompt();dp.userChoice.then(()=>{dp=null;document.getElementById('install-banner').classList.remove('show');});}}
 function dismissBanner(){document.getElementById('install-banner').classList.remove('show');localStorage.setItem('install_dismissed','1');}
-if('serviceWorker'in navigator){const sw=`const C='idx2-v1';self.addEventListener('install',e=>{self.skipWaiting();});self.addEventListener('activate',e=>{e.waitUntil(clients.claim());});self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request)));});`;navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw],{type:'application/javascript'}))).catch(()=>{});}
+if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
 
 load();renderSaisie();
 </script>

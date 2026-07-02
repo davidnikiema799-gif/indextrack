@@ -1,0 +1,18 @@
+{
+  "name": "IndexTrack",
+  "short_name": "IndexTrack",
+  "description": "Suivi de consommation par index de compteur",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1565C0",
+  "theme_color": "#1565C0",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-index.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
